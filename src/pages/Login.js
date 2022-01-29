@@ -5,7 +5,7 @@ function Login(){
     <div className="App Login">
       <div className="container container-login">
         <div className="card">
-          <img src="https://tinyurl.com/yd6t3vnw" className="card-img-top" alt="..." />
+          <img src="https://tinyurl.com/yd6t3vnw" className="card-img-top img-fluid" alt="..." />
           <div className="card-body">
             <h5 className="card-title">Card title</h5>
             <p className="card-text">.............</p>
