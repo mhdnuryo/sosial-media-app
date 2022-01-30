@@ -4,7 +4,7 @@ function Login(){
   return (
     <div className="App Login">
        <div className="container container-login">
-         <h2>Login</h2>
+         <button type="button" class="btn btn-primary">Primary</button>
        </div>
     </div>
   )
