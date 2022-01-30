@@ -5,10 +5,9 @@ function Login(){
     <div className="App Login">
       <div className="container container-login">
         <form>
-            <fieldset>
-              <legend>Login :</legend>
-            </fieldset>
-          </legend>
+          <fieldset>
+            <legend>Login :</legend>
+          </fieldset>
         </form>
       </div>
     </div>
