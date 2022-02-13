@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import About from './pages/About';
 import * as redux from 'react-redux';
 import * as Router from 'react-router-dom';
 
@@ -15,7 +16,9 @@ function App() {
         <Router.Route 
           path="/" element={value ? <Home /> : <Login />}
         />
-
+        <Router.Route
+          path="/about" element={<About />}
+        />
       </Router.Routes>
     </div>
   );

@@ -32,23 +32,24 @@
     <title>React App</title> 
 
     <style>
-      .App .Login{
-        display : flex;
-        height : 100vh;
+      .Login{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid blue;
       }
-      .Login .login-img{
-        flex : 1;
-        background-image: url(https://tinyurl.com/2p8pvcnt);
+      .container-login{
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
       }
-      .Login .login-content{
-        flex : 1;
-        background-color : red;
-        background-size: cover
-      }
-      @media(max-width: 425px){
-        .Login .login-img{
-          display : none;
-        }
+      .login-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 180px
       }
     </style>
   </head>
