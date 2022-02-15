@@ -6,9 +6,7 @@ import * as user from '../redux/reducers/user';
 
 
 function Login(){
-  var [searchParams,setSearchParams] = Router.useSearchParams()
-
-  var [timestamp,setTimestamp] = React.useState(null)
+  var [requestObject,setRequestObject] = React.useState(null)
 
   var [onInit,setOnInit] = React.useState(true)
 
@@ -16,10 +14,8 @@ function Login(){
     username : '', password : ''
   })
 
-  var [url,setUrl] = React.useState('')
- 
   var [pending,result,error] = useFetch(
-    url,'post',data,timestamp
+    requestObject
   )
 
   var api = process.env.REACT_APP_API;
@@ -28,8 +24,11 @@ function Login(){
 
   function submit(e){
     e.preventDefault()
-    setUrl(`${api}/login`)
-    setTimestamp(Date.now())
+    setRequestObject({
+      url : `${api}/login`,
+      method : 'post',
+      data : data
+    })
   }
 
   function afterInit(){
@@ -38,15 +37,14 @@ function Login(){
 
   function login(){
     if(!onInit){
-      setSearchParams({})
       dispatch(user.login(result))
     }
   }
 
-  React.useEffect(() => login(),[result])
-
   React.useEffect(() => afterInit(),[])
   
+  React.useEffect(() => login(),[result])
+
   return (
     <div className="App Login">
       <div className="container container-login">
@@ -69,13 +67,7 @@ function Login(){
           <div className="alert alert-danger text-center">
             {error}
           </div>
-        )}
-        
-        {searchParams.get('alert') && !pending && !error && (
-          <div className="alert alert-danger text-center">
-            You must login first
-          </div>
-        )}        
+        )}      
         
         <a href="#">Lupa password</a>
         <a href="#">Belum punya akun? buat sekarang!</a>

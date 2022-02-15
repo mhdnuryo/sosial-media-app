@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-function useFetch(url,method,data,timestamp){
+function useFetch(reqObj){
   var [onInit,setOnInit] = React.useState(true)
   var [pending,setPending] = React.useState(false)
   var [result,setResult] = React.useState(null)
@@ -12,11 +12,13 @@ function useFetch(url,method,data,timestamp){
   	setOnInit(false)
   }
 
-  async function fetch(cancelToken){
+  async function fetch(rObj,token){
     try{
       var result = await axios({
-        url,method,data,
-        cancelToken
+        url : rObj.url,
+        method : rObj.method,
+        data : rObj.data,
+        cancelToken : token
       })
       setResult(result.data)
     }
@@ -50,7 +52,7 @@ function useFetch(url,method,data,timestamp){
       setResult(null)
       setPending(true)
       setIsCancel(false)
-  	  fetch(cancelToken)
+  	  fetch(reqObj,cancelToken)
   	}
   }
 
@@ -61,10 +63,12 @@ function useFetch(url,method,data,timestamp){
     var source = CancelToken.source()
     preFetch(source.token)
     
-    return () => source.cancel(
-      'canceled by user'
-    )
-  },[url,timestamp])
+    return () => {
+      source.cancel()
+    }
+
+  
+  },[reqObj])
 
 
 
