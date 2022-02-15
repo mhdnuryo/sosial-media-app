@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Router.Routes>
         <Router.Route 
-          path="/" element={value ? <Home /> : <Login />}
+          path="/" element={value ? <Home value={value} /> : <Login />}
         />
         <Router.Route
           path="/about" 
