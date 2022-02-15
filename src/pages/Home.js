@@ -8,6 +8,9 @@ function Home(){
   var dispatch = redux.useDispatch()
   var [socket] = useSocket(process.env)
   
+  socket.off('connect').on('connect',
+    () => alert('connected.......')
+  )
 
   function logout(){
   	dispatch(user.logout())
