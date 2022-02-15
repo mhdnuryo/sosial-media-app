@@ -70,8 +70,6 @@ function useFetch(reqObj){
   
   },[reqObj])
 
-
-
   return [pending,result,error]
 }
 

@@ -6,17 +6,21 @@ import * as user from '../redux/reducers/user';
 
 
 function Login(){
+  var [searchParams,setSearchParams] = Router.useSearchParams()
+
   var [requestObject,setRequestObject] = React.useState(null)
 
   var [onInit,setOnInit] = React.useState(true)
+  
+  var [pending,result,error] = useFetch(
+    requestObject
+  )
+
 
   var [data,setData] = React.useState({
     username : '', password : ''
   })
 
-  var [pending,result,error] = useFetch(
-    requestObject
-  )
 
   var api = process.env.REACT_APP_API;
 
@@ -67,7 +71,12 @@ function Login(){
           <div className="alert alert-danger text-center">
             {error}
           </div>
-        )}      
+        )}
+        {searchParams.get('alert') && !pending && !error && (
+          <div className="alert alert-danger text-center">
+            You must login first
+          </div>
+        )}  
         
         <a href="#">Lupa password</a>
         <a href="#">Belum punya akun? buat sekarang!</a>
