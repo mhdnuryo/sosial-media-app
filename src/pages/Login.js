@@ -60,7 +60,7 @@ function Login(){
           <input type="password" placeholder="password" onChange={({target}) => {
             setData({username : data.username, password : target.value})
           }} />
-          <button disabled={pending ? true : false}className="btn btn-info">Login</button>
+          <button disabled={pending ? true : false}className="btn btn-danger">Login</button>
         </form>
         {pending && (
           <div className="progress">
