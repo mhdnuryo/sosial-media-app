@@ -15,6 +15,11 @@ function useSocket({REACT_APP_API}){
     }
   },[])
 
+
+  Socket?.off('connect').on('connect',
+    () => alert('connected')
+  )
+
   return [Socket]
 }
 
