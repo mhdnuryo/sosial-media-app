@@ -5,11 +5,9 @@ import * as Router from 'react-router-dom';
 import * as user from '../redux/reducers/user'
 
 function Home({value}){
-  var api = proces.env.REACT_APP_API
   var dispatch = redux.useDispatch()
-  var [socket] = useSocket({
-    api,value
-  })
+  var api = process.env.REACT_APP_API
+  var [socket] = useSocket(api,value)
 
   function logout(){
   	dispatch(user.logout())
