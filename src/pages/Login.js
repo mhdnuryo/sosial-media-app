@@ -6,21 +6,23 @@ import * as user from '../redux/reducers/user';
 
 
 function Login(){
-  var [onInit,setOnInit] = React.useState(true)
+  var [searchParams,setSearchParams] = Router.useSearchParams()
 
   var [timestamp,setTimestamp] = React.useState(null)
 
-  var api = process.env.REACT_APP_API;
-
-  var [url,setUrl] = React.useState('')
+  var [onInit,setOnInit] = React.useState(true)
 
   var [data,setData] = React.useState({
     username : '', password : ''
   })
 
+  var [url,setUrl] = React.useState('')
+ 
   var [pending,result,error] = useFetch(
     url,'post',data,timestamp
   )
+
+  var api = process.env.REACT_APP_API;
 
   var dispatch = redux.useDispatch()
 
@@ -36,9 +38,8 @@ function Login(){
 
   function login(){
     if(!onInit){
-      dispatch(user.login(
-        result
-      ))
+      setSearchParams({})
+      dispatch(user.login(result))
     }
   }
 
@@ -57,7 +58,7 @@ function Login(){
           <input type="password" placeholder="password" onChange={({target}) => {
             setData({username : data.username, password : target.value})
           }} />
-          <button className="btn btn-danger">Login</button>
+          <button className="btn btn-info">Login</button>
         </form>
         {pending && (
           <div className="progress">
@@ -65,8 +66,16 @@ function Login(){
           </div>
         )}
         {error && (
-          <p>{error}</p>
+          <div className="alert alert-danger text-center">
+            {error}
+          </div>
         )}
+        
+        {searchParams.get('alert') && !pending && !error && (
+          <div className="alert alert-danger text-center">
+            You must login first
+          </div>
+        )}        
         
         <a href="#">Lupa password</a>
         <a href="#">Belum punya akun? buat sekarang!</a>
