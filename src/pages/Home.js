@@ -1,11 +1,13 @@
 import React from 'react';
+import useSocket from '../custom_hooks/useSocket';
 import * as redux from 'react-redux';
 import * as Router from 'react-router-dom';
 import * as user from '../redux/reducers/user'
 
 function Home(){
   var dispatch = redux.useDispatch()
-  var [searchParams,setSearchParams] = Router.useSearchParams()
+  var [socket] = useSocket(process.env)
+  
 
   function logout(){
   	dispatch(user.logout())
