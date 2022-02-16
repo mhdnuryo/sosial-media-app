@@ -1,8 +1,9 @@
 import React from 'react';
 import useSocket from '../custom_hooks/useSocket';
 
-function About(){
-  var [socket] = useSocket(process.env)
+function About({value}){
+  var api = process.env.REACT_APP_API; 
+  var [socket] = useSocket(api,value)
 
   return (
     <div className="App About">

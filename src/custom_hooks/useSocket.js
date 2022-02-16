@@ -17,7 +17,11 @@ function useSocket(api,value){
 
 
   Socket?.off('connect').on('connect',
-    () => alert(JSON.stringify(value))
+    () => console.log('connected')
+  )
+
+  Socket?.off('test').on('test',
+    (val) => alert(val)
   )
 
   return [Socket]

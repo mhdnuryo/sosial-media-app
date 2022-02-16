@@ -21,7 +21,7 @@ function App() {
           path="/about" 
           element={
             <Protected value={value}>
-              <About />
+              <About value={value} />
             </Protected>
           }
         />
