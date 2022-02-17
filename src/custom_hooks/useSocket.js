@@ -15,13 +15,17 @@ function useSocket(api,value){
     }
   },[])
 
+  function connect(){
+    console.log('connected...')
+    Socket.emit('create',value)
+  }
 
-  Socket?.off('connect').on('connect',
-    () => console.log('connected')
+  Socket?.off('connect').on(
+    'connect', () => connect()
   )
-
+  
   Socket?.off('test').on('test',
-    (val) => alert(val)
+    () => alert('test')
   )
 
   return [Socket]

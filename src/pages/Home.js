@@ -5,7 +5,7 @@ import * as Router from 'react-router-dom';
 import * as user from '../redux/reducers/user'
 
 function Home({value}){
-  var socketId = React.createRef()
+  var userId = React.createRef()
   var dispatch = redux.useDispatch()
   var api = process.env.REACT_APP_API
   var [socket] = useSocket(api,value)
@@ -15,7 +15,7 @@ function Home({value}){
   }
 
   function sendMessage(){
-    socket.emit('test',socketId.current.value)
+    socket.emit('test',userId.current.value)
   }
 
   return (
@@ -23,7 +23,7 @@ function Home({value}){
       <h2>Home</h2>
       <button onClick={logout}>Sign out</button>
       <Router.Link to="/about">About</Router.Link>
-      <input type="text" ref={socketId} placeholder="socket id" />
+      <input type="text" ref={userId} placeholder="user id" />
       <button onClick={sendMessage}>Send message...</button>
     </div>
   )
