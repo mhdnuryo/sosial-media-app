@@ -6,8 +6,10 @@ function Search(){
       <div className="nav-wrapper">
         <form>
           <div className="input-field">
-            <input id="search" type="search">
-            <label className="label-icon" for="search"><i className="material-icons">search</i></label>
+            <input id="search" type="search" />
+            <label className="label-icon" for="search">
+              <i className="material-icons">search</i>
+             s</label>
             <i className="material-icons">close</i>
           </div>
         </form>
