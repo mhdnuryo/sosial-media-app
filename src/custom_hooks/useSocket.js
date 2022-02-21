@@ -8,24 +8,28 @@ function useSocket(api,value){
   	const socket = io(
       api
   	)
-  	setSocket(socket)
-
+  	setSocket(
+      socket
+    )
     return () => {
       socket.close()
     }
   },[])
 
-  function connect(){
-    console.log('connected...')
-    Socket.emit('create',value)
+  function onConnect(){
+    Socket.emit('newId',value)
+  }
+
+  function onTest(){
+    alert('test')
   }
 
   Socket?.off('connect').on(
-    'connect', () => connect()
+    'connect',onConnect
   )
-  
-  Socket?.off('test').on('test',
-    () => alert('test')
+
+  Socket?.off('test').on(
+    'test',onTest
   )
 
   return [Socket]

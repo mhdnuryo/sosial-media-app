@@ -14,17 +14,16 @@ function Home({value}){
   	dispatch(user.logout())
   }
 
-  function sendMessage(){
+  function test(){
     socket.emit('test',userId.current.value)
   }
 
   return (
   	<div className="App Home">
-      <h2>Home</h2>
-      <button onClick={logout}>Sign out</button>
-      <Router.Link to="/about">About</Router.Link>
-      <input type="text" ref={userId} placeholder="user id" />
-      <button onClick={sendMessage}>Send message...</button>
+      <h2>Home...</h2>
+      <button onClick={logout}>Logout</button>
+      <input type="text" ref={userId} placeholder="user id" />i
+      <button onClick={test}>Test socket</button>
     </div>
   )
 }

@@ -16,11 +16,9 @@ function Login(){
     requestObject
   )
 
-
   var [data,setData] = React.useState({
     username : '', password : ''
   })
-
 
   var api = process.env.REACT_APP_API;
 
