@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar';
 import Search from '../components/Search';
 import useSocket from '../custom_hooks/useSocket';
 import * as redux from 'react-redux';
@@ -12,13 +12,6 @@ function Home({value}){
   var api = process.env.REACT_APP_API
   var [socket] = useSocket(api,value)
 
-  function logout(){
-  	dispatch(user.logout())
-  }
-
-  function test(){
-    socket.emit('test',userId.current.value)
-  }
 
   return (
   	<div className="App Home">
