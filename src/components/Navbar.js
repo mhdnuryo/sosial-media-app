@@ -10,7 +10,7 @@ function Navbar(){
         <ul id="nav-mobile" className="right">
           <li>
             <a href="collapsible.html">
-              <i className"material-icons">arrow_drop_down</i>
+              <i className="material-icons">arrow_drop_down</i>
             </a>
           </li>
         </ul>
