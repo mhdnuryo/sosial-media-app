@@ -8,9 +8,11 @@ function Navbar(){
           Logo
         </a>
         <ul id="nav-mobile" className="right">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">JavaScript</a></li>
+          <li>
+            <a href="collapsible.html">
+              <i className"material-icons">arrow_drop_down</i>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
