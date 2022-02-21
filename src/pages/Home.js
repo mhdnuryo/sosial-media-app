@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../components/Navbar'
 import Search from '../components/Search';
 import useSocket from '../custom_hooks/useSocket';
 import * as redux from 'react-redux';
@@ -21,6 +22,7 @@ function Home({value}){
 
   return (
   	<div className="App Home">
+      <Navbar />
       <Search />
     </div>
   )
