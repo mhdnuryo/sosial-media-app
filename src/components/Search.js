@@ -15,3 +15,5 @@ function Search(){
     </nav>
   )
 }
+
+export default Search
