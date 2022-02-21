@@ -11,7 +11,7 @@ function Navbar(){
           </a>
           <ul id="nav-mobile" className="right">
             <li>
-              <a href="#" className="dropdown-trigger" data-target="dropdown">
+              <a className="dropdown-trigger" data-target="dropdown">
                 <i className="material-icons">arrow_drop_down</i>
               </a>
             </li>
