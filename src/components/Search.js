@@ -6,7 +6,11 @@ function Search(){
       <div className="nav-wrapper">
         <form>
           <div className="input-field">
-            <input id="search" type="search" />
+            <input 
+              id="search" 
+              type="search" 
+              placeholder"search with firstname or lastname" 
+            />
             <label className="label-icon" for="search">
               <i className="material-icons">search</i>
             </label>
