@@ -5,7 +5,7 @@ function Navbar(){
     <nav>
       <div className="nav-wrapper">
         <a href="#" className="brand-logo logo left">
-          Logo
+          App
         </a>
         <ul id="nav-mobile" className="right">
           <li>
