@@ -1,1 +1,1 @@
-alert('ok')
+M.AutoInit()
