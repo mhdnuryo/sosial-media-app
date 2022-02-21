@@ -20,17 +20,11 @@ function useSocket(api,value){
     Socket.emit('newId',value)
   }
 
-  function onTest(){
-    alert('test')
-  }
-
   Socket?.off('connect').on(
     'connect',onConnect
   )
 
-  Socket?.off('test').on(
-    'test',onTest
-  )
+  
 
   return [Socket]
 }
