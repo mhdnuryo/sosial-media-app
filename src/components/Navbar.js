@@ -18,7 +18,9 @@ function Navbar(){
           </ul>
         </div>
       </nav>
-      <Dropdown />
+      <ul id="dropdown" className="dropdown-content">
+        <li><a href="#">One</a></li>
+      </ul>
     </>
   )
 }
