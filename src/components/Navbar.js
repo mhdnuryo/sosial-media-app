@@ -4,7 +4,7 @@ function Navbar(){
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="#" className="brand-logo">
+        <a href="#" className="brand-logo left">
           <img 
             src="https://materializecss.com/images/yuna.jpg" 
             alt="logo" className="circle responsive-img" 
