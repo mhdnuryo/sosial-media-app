@@ -7,8 +7,8 @@ function Navbar(){
         <a href="#" className="brand-logo">
           <img 
             src="https://materializecss.com/images/yuna.jpg" 
-            alt="logo" className="cirlce responsive-img" 
-            height="50px" width="50px"
+            alt="logo" className="circle responsive-img" 
+            height="60px" width="60px"
           />
         </a>
         <ul id="nav-mobile" className="right">
