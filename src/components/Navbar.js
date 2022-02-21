@@ -5,7 +5,11 @@ function Navbar(){
     <nav>
       <div className="nav-wrapper">
         <a href="#" className="brand-logo">
-          <img src="https://materializecss.com/images/yuna.jpg" alt="logo" className="cirlce responsive-img" />
+          <img 
+            src="https://materializecss.com/images/yuna.jpg" 
+            alt="logo" className="cirlce responsive-img" 
+            height"50px" width="50px"
+          />
         </a>
         <ul id="nav-mobile" className="right">
           <li><a href="sass.html">Sass</a></li>
