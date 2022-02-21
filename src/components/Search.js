@@ -9,7 +9,7 @@ function Search(){
             <input 
               id="search" 
               type="search" 
-              placeholder"search with firstname or lastname" 
+              placeholder"search with firstname" 
             />
             <label className="label-icon" for="search">
               <i className="material-icons">search</i>
