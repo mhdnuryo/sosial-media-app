@@ -1,4 +1,5 @@
 import React from 'react';
+import Search from '../components/Search';
 import useSocket from '../custom_hooks/useSocket';
 import * as redux from 'react-redux';
 import * as Router from 'react-router-dom';
@@ -20,8 +21,7 @@ function Home({value}){
 
   return (
   	<div className="App Home">
-      <h2>Home...</h2>
-      <button onClick={logout}>Logout</button>
+      <Search />
     </div>
   )
 }
