@@ -4,12 +4,8 @@ function Navbar(){
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="#" className="brand-logo left">
-          <img 
-            src="https://materializecss.com/images/yuna.jpg" 
-            alt="logo" className="circle responsive-img" 
-            height="55px" width="55px"
-          />
+        <a href="#" className="brand-logo logo left">
+          Logo
         </a>
         <ul id="nav-mobile" className="right">
           <li><a href="sass.html">Sass</a></li>
