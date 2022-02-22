@@ -6,10 +6,10 @@ const user = createSlice({
   	value : null
   },
   reducers : {
-    login : (state,action) => {
+    signin : (state,action) => {
       state.value = action.payload
     },
-    logout : (state) => {
+    signout : (state) => {
       state.value = null
     }
   }

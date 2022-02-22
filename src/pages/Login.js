@@ -24,6 +24,7 @@ function Login(){
 
   var dispatch = redux.useDispatch()
 
+
   function submit(e){
     e.preventDefault()
     setRequestObject({
@@ -39,7 +40,7 @@ function Login(){
 
   function login(){
     if(!onInit){
-      dispatch(user.login(result))
+      dispatch(user.signin(result))
     }
   }
 
