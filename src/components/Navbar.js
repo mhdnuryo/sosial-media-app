@@ -1,39 +1,29 @@
-import React from 'react';
-import M from 'materialize-css';
-
 import React from 'react'
+import M from 'materialize-css';
 import * as redux from 'react-redux';
-import * as user from '../redux/reducers/user'
+import * as user from '../redux/reducers/user';
 
 function Navbar(){
-  var dispatch = redux.useDispatch()
-
+  var dispatch = redux.useDispatch();
+  
   function signOut(e){
-  	e.preventDefault()
-  	dispatch(user.signout)
+  	e.preventDefault();
+  	dispatch(user.signOut());
   }
 
-  return (
+  return ( 
     <nav>
-      <div className="nav-wrapper">
-        <a href="#" className="brand-logo logo left">
-            App
-        </a>
-        <ul id="nav-mobile" className="right">
-          <li>
-            <a href="#">
-              <i className="material-icons">arrow_drop_down</i>
-            </a>
-          </li>
-          <li>
-            <a href="#" onClick={signOut} >
-              <i className="material-icons">close</i>
-            </a>
-          </li>
-        </ul>
-      </div>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo logo left">Logo</a>
+      <ul id="nav-mobile" class="right">
+        <li>
+          <a href="sass.html">
+            <i class="material-icons">power_settings_new</i>
+          </a>
+        </li>
+      </ul>
+    </div>
     </nav>
-     
   )
 }
 

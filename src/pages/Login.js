@@ -40,7 +40,7 @@ function Login(){
 
   function login(){
     if(!onInit){
-      dispatch(user.signin(result))
+      dispatch(user.signIn(result))
     }
   }
 
