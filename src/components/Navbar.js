@@ -14,7 +14,7 @@ function Navbar(){
   return ( 
     <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo logo left">Logo</a>
+      <a href="#" class="brand-logo logo left">App</a>
       <ul id="nav-mobile" class="right">
         <li>
           <a href="#" onClick={signOut}>
