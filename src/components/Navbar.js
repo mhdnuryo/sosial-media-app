@@ -17,7 +17,7 @@ function Navbar(){
       <a href="#" class="brand-logo logo left">Logo</a>
       <ul id="nav-mobile" class="right">
         <li>
-          <a href="sass.html">
+          <a href="#" onClick={signOut}>
             <i class="material-icons">power_settings_new</i>
           </a>
         </li>
