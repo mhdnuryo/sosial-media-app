@@ -24,7 +24,7 @@ function useSocket(api,id){
     'connect',onConnect
   )
 
-  Socket?.off('connect').on(
+  Socket?.off('newId').on(
     'newId',(message) => {
       console.log(
         message
