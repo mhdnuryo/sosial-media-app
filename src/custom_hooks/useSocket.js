@@ -1,7 +1,7 @@
 import React from 'react';
 import io from 'socket.io-client';
 
-function useSocket(api,value){
+function useSocket(api){
   const [Socket,setSocket] = React.useState(null);
  
   React.useEffect(() => {
@@ -17,7 +17,7 @@ function useSocket(api,value){
   },[])
 
   function onConnect(){
-    Socket.emit('newId',value)
+    console.log('connected')
   }
 
   Socket?.off('connect').on(

@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import About from './pages/About';
+import Message from './pages/Message';
 import Protected from './pages/Protected';
 import * as redux from 'react-redux';
 import * as Router from 'react-router-dom';
@@ -21,7 +22,19 @@ function App() {
           path="/about" 
           element={
             <Protected value={value}>
-              <About value={value} />
+              <About 
+                value={value} 
+              />
+            </Protected>
+          }
+        />
+        <Router.Route
+          path="/message/:id"
+          element={
+            <Protected value={value}>
+              <Message 
+                value={value}
+              />
             </Protected>
           }
         />

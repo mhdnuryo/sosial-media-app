@@ -1,17 +1,18 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
-import Last from '../components/Last';
+import Preload from '../components/Preload';
 import * as Router from 'react-router-dom';
 
-function Home({value}){
+
+function Message({value}){
+  var {id} = Router.useParams()
+
   return (
-  	<div className="App Home">
-      <Navbar />
-      <Search />
-      <Last value={value} />
+    <div className="App Message">
+      
     </div>
   )
 }
 
-export default Home
+export default Message
