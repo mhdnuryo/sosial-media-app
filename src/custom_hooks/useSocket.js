@@ -17,7 +17,7 @@ function useSocket(api,id){
   },[])
 
   function onConnect(){
-    socket.emit('newId',id)
+    Socket.emit('newId',id)
   }
 
   Socket?.off('connect').on(
