@@ -86,6 +86,11 @@ function Last({value:{id}}){
                     <i class="material-icons grey-text">done_all</i>
                   </a>
                 )}
+                {!message.unread && (
+                  <a class="secondary-content" href="#!">
+                    <i class="material-icons">done_all</i>
+                  </a>
+                )}
               </Router.Link>
             </li> 
           )
