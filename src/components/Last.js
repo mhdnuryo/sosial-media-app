@@ -8,8 +8,8 @@ import * as Router from 'react-router-dom';
 function Last({value:{id}}){
   var [requestResult,setRequestResult] = React.useState(null)
   var [requestObject,setRequestObject] = React.useState(null)
+  var [socket] = useSocket(process.env.REACT_APP_API,id)
   var [pending,result,error] = useFetch(requestObject)
-  var [socket] = useSocket(process.env.REACT_APP_API)
   var [onInit,setOnInit] = React.useState(true)
 
 
@@ -102,6 +102,9 @@ function Last({value:{id}}){
                 src={senderProfile.profilePicture}
                 class="circle" alt="pp" 
               />
+              {unread && (
+                <span class="new badge" data-badge-caption={unread}></span>
+              )}
               <span class="title">{senderProfile.firstName}</span>
               <p class="grey-text">{message.text}</p>
             </Router.Link>
