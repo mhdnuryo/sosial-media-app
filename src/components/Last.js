@@ -5,10 +5,9 @@ import useSocket from '../custom_hooks/useSocket';
 import * as Router from 'react-router-dom';
 
 
-function Last({value:{id}}){
+function Last({value,socket}){
   var [requestResult,setRequestResult] = React.useState(null)
   var [requestObject,setRequestObject] = React.useState(null)
-  var [socket] = useSocket(process.env.REACT_APP_API,id)
   var [pending,result,error] = useFetch(requestObject)
   var [onInit,setOnInit] = React.useState(true)
 
@@ -18,7 +17,7 @@ function Last({value:{id}}){
   function afterInit(){
     setOnInit(false)
     setRequestObject({
-      url : `${api}/message/last/${id}`,
+      url : `${api}/message/last/${value.id}`,
       method : 'get'
     })
   }
@@ -32,7 +31,7 @@ function Last({value:{id}}){
   function onRequestResult(){
     if(!onInit){
       var filter = requestResult.filter(
-        ({sender}) => sender.id != id
+        ({sender}) => sender.id != value.id
       )
       if(filter.length>0){
          socket.emit('unread',filter)
@@ -54,6 +53,18 @@ function Last({value:{id}}){
     }
   })
 
+  socket?.off('unreadUpdate').on('unreadUpdate',(id) => {
+    var [filter] = requestResult?.filter(
+      ({receiver}) => receiver.id == id
+    )
+    var newResult = requestResult?.filter(
+      ({receiver}) => receiver.id != id
+    )
+    filter.message.unread = false
+    newResult.push(filter)
+    setRequestResult(newResult)
+  })
+
 
   React.useEffect(() => afterInit(),[])
   React.useEffect(() => onResult(),[result])
@@ -69,9 +80,10 @@ function Last({value:{id}}){
   <div className="lastMessage">
     <ul class="collection">
       {requestResult?.map(({sender,senderProfile,message,receiver,receiverProfile,unread}) => {
-        var dstId = sender.id == id ? receiver.id : sender.id;
-        var url = `message/${dstId}`
-        if(sender.id == id){
+        var isUnread =  unread && unread > 0 ? true : false
+        var dstId = sender.id == value.id ? receiver.id : sender.id;
+        var url = sender.id == value.id ? `message/${dstId}` : `message/${dstId}?isUnread=${isUnread}`
+        if(sender.id == value.id){
           return (
             <li class="collection-item avatar valign-wrapper" key={message.id}>
               <Router.Link to={url}>
