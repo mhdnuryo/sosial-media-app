@@ -6,6 +6,7 @@ import * as Router from 'react-router-dom';
 
 
 function Last({value,socket}){
+  var [isRequestUpdate,setIsRequestUpdate] = React.useState(false)
   var [requestResult,setRequestResult] = React.useState(null)
   var [requestObject,setRequestObject] = React.useState(null)
   var [pending,result,error] = useFetch(requestObject)
@@ -33,7 +34,8 @@ function Last({value,socket}){
       var filter = requestResult.filter(
         ({sender}) => sender.id != value.id
       )
-      if(filter.length>0){
+      if(filter.length>0 && !isRequestUpdate){
+         setIsRequestUpdate(true)
          socket.emit('unread',filter)
       }
     }
